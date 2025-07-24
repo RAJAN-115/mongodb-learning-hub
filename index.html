@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Learning Hub - Master Database Skills</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-database"></i>
+                <h2>MongoDB Hub</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-section="home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#overview" class="nav-link" data-section="overview"><i class="fas fa-book"></i> Overview</a></li>
+                <li><a href="#basics" class="nav-link" data-section="basics"><i class="fas fa-cogs"></i> Basic Operations</a></li>
+                <li><a href="#advanced" class="nav-link" data-section="advanced"><i class="fas fa-rocket"></i> Advanced Concepts</a></li>
+                <li><a href="#tools" class="nav-link" data-section="tools"><i class="fas fa-tools"></i> Tools & Development</a></li>
+                <li><a href="#quiz" class="nav-link" data-section="quiz"><i class="fas fa-brain"></i> Practice Quiz</a></li>
+                <li><a href="#glossary" class="nav-link" data-section="glossary"><i class="fas fa-book-open"></i> Glossary</a></li>
+            </ul>
+            
+            <div class="progress-section">
+                <h4>Learning Progress</h4>
+                <div class="progress-item">
+                    <span>Overall Progress</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="overall-progress"></div>
+                    </div>
+                    <span class="progress-text" id="progress-percentage">0%</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <div class="hero-section">
+                    <h1>🍃 Welcome to MongoDB Learning Hub</h1>
+                    <p class="hero-subtitle">Master MongoDB from basics to advanced concepts with interactive lessons, memory techniques, and hands-on practice.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Structured Learning</h3>
+                            <p>Follow a comprehensive curriculum from MongoDB basics to advanced aggregation frameworks.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-brain"></i>
+                            <h3>Memory Techniques</h3>
+                            <p>Learn with mnemonics, analogies, and visual aids designed to make complex concepts stick.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-code"></i>
+                            <h3>Interactive Examples</h3>
+                            <p>Practice with real MongoDB commands and see immediate results in your learning journey.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-trophy"></i>
+                            <h3>Track Progress</h3>
+                            <p>Monitor your learning progress and test your knowledge with interactive quizzes.</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-start">
+                        <h3>🚀 Quick Start Guide</h3>
+                        <div class="memory-hook">
+                            <strong>Remember:</strong> <em>MONGO = Massively Organized Non-relational Great Objects</em>
+                        </div>
+                        <button class="btn btn--primary" onclick="startLearning()">Begin Your MongoDB Journey</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Overview Section -->
+            <section id="overview" class="content-section">
+                <div class="section-header">
+                    <h1>📚 MongoDB Overview</h1>
+                    <div class="breadcrumb">Home > Overview</div>
+                </div>
+
+                <div class="lesson-content">
+                    <div class="concept-card">
+                        <h2>What is MongoDB?</h2>
+                        <div class="definition-box">
+                            <p>Open-source, document-oriented NoSQL database management system designed for flexibility, scalability, and performance in handling unstructured or semi-structured data.</p>
+                        </div>
+                        
+                        <div class="analogy-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Think of it like:</strong> MongoDB is like a digital filing cabinet with flexible folders - you can put different types of documents in each folder without worrying about a fixed structure.
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>📅 History and Origin</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <span class="year">2007</span>
+                                <div class="timeline-content">
+                                    <strong>Founded</strong> by Eliot Horowitz and Dwight Merriman at 10gen
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="year">2009</span>
+                                <div class="timeline-content">
+                                    <strong>First Version Released</strong> to the public
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="year">Now</span>
+                                <div class="timeline-content">
+                                    <strong>MongoDB, Inc.</strong> - Leading NoSQL database provider
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fun-fact">
+                            <i class="fas fa-star"></i>
+                            <strong>Fun Fact:</strong> "Mongo" comes from "Humongous" - built to handle massive datasets!
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>🆚 NoSQL vs SQL Comparison</h2>
+                        <div class="comparison-table">
+                            <div class="comparison-row header">
+                                <div class="comparison-cell">Aspect</div>
+                                <div class="comparison-cell sql">SQL Databases</div>
+                                <div class="comparison-cell nosql">NoSQL (MongoDB)</div>
+                            </div>
+                            <div class="comparison-row">
+                                <div class="comparison-cell">Structure</div>
+                                <div class="comparison-cell">Tables with rows & columns</div>
+                                <div class="comparison-cell">Collections with documents</div>
+                            </div>
+                            <div class="comparison-row">
+                                <div class="comparison-cell">Schema</div>
+                                <div class="comparison-cell">Fixed, predefined</div>
+                                <div class="comparison-cell">Flexible, dynamic</div>
+                            </div>
+                            <div class="comparison-row">
+                                <div class="comparison-cell">Scaling</div>
+                                <div class="comparison-cell">Vertical (more powerful hardware)</div>
+                                <div class="comparison-cell">Horizontal (more servers)</div>
+                            </div>
+                            <div class="comparison-row">
+                                <div class="comparison-cell">Best For</div>
+                                <div class="comparison-cell">E-commerce, HR systems</div>
+                                <div class="comparison-cell">CMS, social media, gaming</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>🏗️ MongoDB Architecture</h2>
+                        <div class="architecture-diagram">
+                            <div class="arch-layer frontend">
+                                <i class="fas fa-desktop"></i>
+                                <span>Frontend</span>
+                                <small>HTML, CSS, JS, React</small>
+                            </div>
+                            <div class="arch-arrow">↓</div>
+                            <div class="arch-layer backend">
+                                <i class="fas fa-server"></i>
+                                <span>Backend</span>
+                                <small>Node.js, Express, Python</small>
+                            </div>
+                            <div class="arch-arrow">↓</div>
+                            <div class="arch-layer database">
+                                <i class="fas fa-database"></i>
+                                <span>MongoDB Server</span>
+                                <small>Document Processing</small>
+                            </div>
+                            <div class="arch-arrow">↓</div>
+                            <div class="arch-layer storage">
+                                <i class="fas fa-hdd"></i>
+                                <span>Storage Engine</span>
+                                <small>WiredTiger</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>📄 JSON vs BSON</h2>
+                        <div class="json-bson-comparison">
+                            <div class="format-box json">
+                                <h4>JSON (JavaScript Object Notation)</h4>
+                                <div class="code-example">
+{
+  "name": "John Doe",
+  "age": 30,
+  "skills": ["JavaScript", "MongoDB"]
+}
+                                </div>
+                                <p>✅ Human-readable<br>✅ Text format<br>❌ Slower processing</p>
+                            </div>
+                            <div class="format-arrow">→</div>
+                            <div class="format-box bson">
+                                <h4>BSON (Binary JSON)</h4>
+                                <div class="code-example">
+Binary representation:
+[Binary data representation]
+Optimized for machine processing
+                                </div>
+                                <p>✅ Faster read/write<br>✅ Less storage<br>✅ Better performance</p>
+                            </div>
+                        </div>
+                        <div class="memory-hook">
+                            <strong>Memory Hook:</strong> <em>BSON = Better Speed, Optimized Navigation</em>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>⭐ Key Features</h2>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <i class="fas fa-flex-direction"></i>
+                                <div>
+                                    <h4>Flexible Schema Design</h4>
+                                    <p>Dynamic, schema-less data structures that evolve with your application needs.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                                <div>
+                                    <h4>Scalability and Performance</h4>
+                                    <p>Horizontal scaling for large datasets and optimized read/write operations.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-file-alt"></i>
+                                <div>
+                                    <h4>Document-Oriented Storage</h4>
+                                    <p>Data stored in flexible, self-contained JSON-like BSON documents.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-search"></i>
+                                <div>
+                                    <h4>Dynamic Queries</h4>
+                                    <p>Rich query language with index utilization for lightning-fast searches.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-sitemap"></i>
+                                <div>
+                                    <h4>Aggregation Framework</h4>
+                                    <p>Advanced data transformations and analysis using pipeline stages.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Open Source Community</h4>
+                                    <p>Active development and extensive community support worldwide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-completion">
+                        <button class="btn btn--primary" onclick="markSectionComplete('overview')">Mark Overview Complete</button>
+                        <button class="btn btn--secondary" onclick="navigateToSection('basics')">Continue to Basic Operations →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Basic Operations Section -->
+            <section id="basics" class="content-section">
+                <div class="section-header">
+                    <h1>⚙️ Basic Operations</h1>
+                    <div class="breadcrumb">Home > Basic Operations</div>
+                </div>
+
+                <div class="lesson-content">
+                    <div class="memory-hook">
+                        <strong>Remember:</strong> <em>CRUD = Create, Read, Update, Delete - like organizing your digital life!</em>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>📚 Core Terminologies</h2>
+                        <div class="terminology-grid">
+                            <div class="term-card" onclick="showTermDetails('database')">
+                                <i class="fas fa-database"></i>
+                                <h4>Database</h4>
+                                <p>A container for collections</p>
+                            </div>
+                            <div class="term-card" onclick="showTermDetails('collection')">
+                                <i class="fas fa-folder"></i>
+                                <h4>Collection</h4>
+                                <p>A group of documents (like SQL table)</p>
+                            </div>
+                            <div class="term-card" onclick="showTermDetails('document')">
+                                <i class="fas fa-file"></i>
+                                <h4>Document</h4>
+                                <p>A record in BSON format (like SQL row)</p>
+                            </div>
+                            <div class="term-card" onclick="showTermDetails('schemaless')">
+                                <i class="fas fa-unlock"></i>
+                                <h4>Schemaless</h4>
+                                <p>No fixed document structure required</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>🏗️ Database Management Commands</h2>
+                        <div class="command-section">
+                            <div class="command-item">
+                                <div class="command-header">
+                                    <h4>List Databases</h4>
+                                    <button class="copy-btn" onclick="copyCode('show dbs;')"><i class="fas fa-copy"></i></button>
+                                </div>
+                                <div class="code-block">
+                                    <code>show dbs;</code>
+                                </div>
+                                <p class="command-description">Lists all available databases on the server</p>
+                            </div>
+
+                            <div class="command-item">
+                                <div class="command-header">
+                                    <h4>Use/Create Database</h4>
+                                    <button class="copy-btn" onclick="copyCode('use myDatabase;')"><i class="fas fa-copy"></i></button>
+                                </div>
+                                <div class="code-block">
+                                    <code>use &lt;database-name&gt;;</code>
+                                </div>
+                                <p class="command-description">Switch to or create a database (appears in show dbs only after adding data)</p>
+                            </div>
+
+                            <div class="command-item">
+                                <div class="command-header">
+                                    <h4>List Collections</h4>
+                                    <button class="copy-btn" onclick="copyCode('show collections;')"><i class="fas fa-copy"></i></button>
+                                </div>
+                                <div class="code-block">
+                                    <code>show collections;</code>
+                                </div>
+                                <p class="command-description">Shows all collections in the current database</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>📝 CRUD Operations</h2>
+                        
+                        <div class="crud-section">
+                            <div class="crud-operation" data-operation="create">
+                                <h3><i class="fas fa-plus-circle text-success"></i> Create (Insert)</h3>
+                                <div class="operation-tabs">
+                                    <button class="tab-btn active" onclick="showTab('insertOne')">insertOne()</button>
+                                    <button class="tab-btn" onclick="showTab('insertMany')">insertMany()</button>
+                                </div>
+                                <div class="tab-content" id="insertOne">
+                                    <div class="code-block">
+                                        <code>db.users.insertOne({
+  name: "Alice",
+  age: 30,
+  email: "alice@example.com"
+});</code>
+                                    </div>
+                                    <p>Inserts a single document into the collection</p>
+                                </div>
+                                <div class="tab-content hidden" id="insertMany">
+                                    <div class="code-block">
+                                        <code>db.users.insertMany([
+  { name: "Bob", age: 25 },
+  { name: "Charlie", age: 35 }
+], { ordered: false });</code>
+                                    </div>
+                                    <p>Inserts multiple documents. Use {ordered: false} for unordered inserts.</p>
+                                </div>
+                            </div>
+
+                            <div class="crud-operation" data-operation="read">
+                                <h3><i class="fas fa-search text-info"></i> Read (Find)</h3>
+                                <div class="operation-tabs">
+                                    <button class="tab-btn active" onclick="showTab('find')">find()</button>
+                                    <button class="tab-btn" onclick="showTab('findOne')">findOne()</button>
+                                </div>
+                                <div class="tab-content" id="find">
+                                    <div class="code-block">
+                                        <code>db.users.find({ age: { $gt: 25 } });
+// Find all users older than 25</code>
+                                    </div>
+                                </div>
+                                <div class="tab-content hidden" id="findOne">
+                                    <div class="code-block">
+                                        <code>db.users.findOne({ name: "Alice" });
+// Find first user named Alice</code>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="crud-operation" data-operation="update">
+                                <h3><i class="fas fa-edit text-warning"></i> Update</h3>
+                                <div class="code-block">
+                                    <code>db.users.updateOne(
+  { name: "Alice" },
+  { $set: { age: 31 } }
+);</code>
+                                </div>
+                                <p>Updates a single document. Use updateMany() for multiple documents.</p>
+                            </div>
+
+                            <div class="crud-operation" data-operation="delete">
+                                <h3><i class="fas fa-trash text-danger"></i> Delete</h3>
+                                <div class="code-block">
+                                    <code>db.users.deleteOne({ name: "Alice" });
+// Deletes first matching document</code>
+                                </div>
+                                <p>Deletes a single document. Use deleteMany() for multiple documents.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>🔍 Query Operators</h2>
+                        <div class="operators-grid">
+                            <div class="operator-category">
+                                <h4>Comparison Operators</h4>
+                                <div class="operators-list">
+                                    <div class="operator-item">
+                                        <code>$eq</code> <span>Equal to</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$ne</code> <span>Not equal to</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$gt</code> <span>Greater than</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$gte</code> <span>Greater than or equal</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$lt</code> <span>Less than</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$lte</code> <span>Less than or equal</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="operator-category">
+                                <h4>Logical Operators</h4>
+                                <div class="operators-list">
+                                    <div class="operator-item">
+                                        <code>$and</code> <span>All conditions true</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$or</code> <span>At least one condition true</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$not</code> <span>Inverts query expression</span>
+                                    </div>
+                                    <div class="operator-item">
+                                        <code>$nor</code> <span>Neither condition true</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h4>Example Usage:</h4>
+                            <div class="code-block">
+                                <code>db.products.find({
+  $and: [
+    { price: { $gt: 100 } },
+    { category: "electronics" }
+  ]
+});</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-completion">
+                        <button class="btn btn--primary" onclick="markSectionComplete('basics')">Mark Basics Complete</button>
+                        <button class="btn btn--secondary" onclick="navigateToSection('advanced')">Continue to Advanced Concepts →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Concepts Section -->
+            <section id="advanced" class="content-section">
+                <div class="section-header">
+                    <h1>🚀 Advanced Concepts</h1>
+                    <div class="breadcrumb">Home > Advanced Concepts</div>
+                </div>
+
+                <div class="lesson-content">
+                    <div class="concept-card">
+                        <h2>🎯 Cursors</h2>
+                        <div class="analogy-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Think of it like:</strong> Cursors are like reading a book page by page instead of loading the entire book into memory at once.
+                        </div>
+                        
+                        <div class="cursor-methods">
+                            <div class="method-item">
+                                <code>count()</code>
+                                <span>Returns number of documents</span>
+                                <div class="code-example">db.users.find().count()</div>
+                            </div>
+                            <div class="method-item">
+                                <code>limit(n)</code>
+                                <span>Limits documents returned</span>
+                                <div class="code-example">db.users.find().limit(5)</div>
+                            </div>
+                            <div class="method-item">
+                                <code>skip(n)</code>
+                                <span>Skips specified documents</span>
+                                <div class="code-example">db.users.find().skip(10)</div>
+                            </div>
+                            <div class="method-item">
+                                <code>sort()</code>
+                                <span>Sorts results (1: asc, -1: desc)</span>
+                                <div class="code-example">db.users.find().sort({age: -1})</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>🗂️ Indexes</h2>
+                        <div class="memory-hook">
+                            <strong>Memory Hook:</strong> <em>INDEX = Instant Navigation for Database EXcellence</em>
+                        </div>
+                        
+                        <div class="analogy-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Think of it like:</strong> Indexes are like the index in a book - they help you quickly find what you're looking for without reading every page.
+                        </div>
+
+                        <div class="index-benefits">
+                            <h4>Benefits of Indexes:</h4>
+                            <div class="benefits-grid">
+                                <div class="benefit-item">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>Faster Querying</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-sort"></i>
+                                    <span>Efficient Sorting</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Improved Aggregation</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Multi-field Support</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="index-commands">
+                            <h4>Index Management:</h4>
+                            <div class="command-grid">
+                                <div class="command-item">
+                                    <h5>Create Index</h5>
+                                    <div class="code-block">
+                                        <code>db.collection.createIndex({ field: 1 });</code>
+                                    </div>
+                                </div>
+                                <div class="command-item">
+                                    <h5>List Indexes</h5>
+                                    <div class="code-block">
+                                        <code>db.collection.getIndexes();</code>
+                                    </div>
+                                </div>
+                                <div class="command-item">
+                                    <h5>Unique Index</h5>
+                                    <div class="code-block">
+                                        <code>db.collection.createIndex({ email: 1 }, { unique: true });</code>
+                                    </div>
+                                </div>
+                                <div class="command-item">
+                                    <h5>Drop Index</h5>
+                                    <div class="code-block">
+                                        <code>db.collection.dropIndex({ field: 1 });</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>When NOT to use indexes:</strong>
+                            <ul>
+                                <li>On rarely used fields (unnecessary resource consumption)</li>
+                                <li>When queries return >60% of documents</li>
+                                <li>For very small collections</li>
+                                <li>Over-indexing can strain resources</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h2>⚡ Aggregation Framework</h2>
+                        <div class="memory-hook">
+                            <strong>Memory Hook:</strong> <em>MAGIC Pipeline = Match, Aggregate, Group, Include, Count</em>
+                        </div>
+                        
+                        <div class="analogy-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Think of it like:</strong> Aggregation is like a factory pipeline - data goes through different stages and gets transformed at each step.
+                        </div>
+
+                        <div class="pipeline-visualization">
+                            <h4>Aggregation Pipeline Stages:</h4>
+                            <div class="pipeline-flow">
+                                <div class="pipeline-stage">
+                                    <i class="fas fa-filter"></i>
+                                    <span>$match</span>
+                                    <small>Filter documents</small>
+                                </div>
+                                <div class="pipeline-arrow">→</div>
+                                <div class="pipeline-stage">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>$group</span>
+                                    <small>Group by field</small>
+                                </div>
+                                <div class="pipeline-arrow">→</div>
+                                <div class="pipeline-stage">
+                                    <i class="fas fa-sort"></i>
+                                    <span>$sort</span>
+                                    <small>Sort results</small>
+                                </div>
+                                <div class="pipeline-arrow">→</div>
+                                <div class="pipeline-stage">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>$project</span>
+                                    <small>Shape output</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="aggregation-stages">
+                            <h4>Common Pipeline Stages:</h4>
+                            <div class="stages-grid">
+                                <div class="stage-item">
+                                    <code>$match</code>
+                                    <p>Filters documents (like find())</p>
+                                </div>
+                                <div class="stage-item">
+                                    <code>$group</code>
+                                    <p>Groups documents by field</p>
+                                </div>
+                                <div class="stage-item">
+                                    <code>$sort</code>
+                                    <p>Sorts documents in pipeline</p>
+                                </div>
+                                <div class="stage-item">
+                                    <code>$project</code>
+                                    <p>Reshapes documents</p>
+                                </div>
+                                <div class="stage-item">
+                                    <code>$unwind</code>
+                                    <p>Deconstructs array fields</p>
+                                </div>
+                                <div class="stage-item">
+                                    <code>$limit</code>
+                                    <p>Limits number of documents</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="aggregation-example">
+                            <h4>Real-world Example:</h4>
+                            <div class="code-block">
+                                <code>db.sales.aggregate([
+  { $match: { date: { $gte: "2024-01-01" } } },
+  { $group: { 
+      _id: "$product", 
+      totalSales: { $sum: "$amount" },
+      count: { $sum: 1 }
+  }},
+  { $sort: { totalSales: -1 } },
+  { $limit: 10 }
+]);</code>
+                            </div>
+                            <p class="example-explanation">This pipeline finds sales from 2024, groups by product, calculates totals, sorts by sales amount, and returns top 10 products.</p>
+                        </div>
+                    </div>
+
+                    <div class="section-completion">
+                        <button class="btn btn--primary" onclick="markSectionComplete('advanced')">Mark Advanced Complete</button>
+                        <button class="btn btn--secondary" onclick="navigateToSection('tools')">Continue to Tools & Development →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Section -->
+            <section id="tools" class="content-section">
+                <div class="section-header">
+                    <h1>🛠️ Tools & Development</h1>
+                    <div class="breadcrumb">Home > Tools & Development</div>
+                </div>
+
+                <div class="lesson-content">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-cloud"></i>
+                                <h3>MongoDB Atlas</h3>
+                            </div>
+                            <p>Fully managed cloud database service for easy deployment, management, and scaling.</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Cloud Hosting</span>
+                                <span class="feature-tag">Auto Scaling</span>
+                                <span class="feature-tag">Global Clusters</span>
+                                <span class="feature-tag">Backup & Restore</span>
+                            </div>
+                            <div class="setup-steps">
+                                <h4>Setup Process:</h4>
+                                <ol>
+                                    <li>Create organization & project</li>
+                                    <li>Deploy cluster</li>
+                                    <li>Configure database user</li>
+                                    <li>Set network access (IP whitelist)</li>
+                                    <li>Connect via connection string</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-compass"></i>
+                                <h3>MongoDB Compass</h3>
+                            </div>
+                            <p>Graphical User Interface (GUI) for visual database interaction and management.</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Visual Interface</span>
+                                <span class="feature-tag">Query Builder</span>
+                                <span class="feature-tag">Schema Analysis</span>
+                                <span class="feature-tag">Index Management</span>
+                            </div>
+                            <div class="compass-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Visual document editing</li>
+                                    <li>Aggregation pipeline builder</li>
+                                    <li>Query performance insights</li>
+                                    <li>Real-time server statistics</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-code"></i>
+                                <h3>MongoDB Drivers</h3>
+                            </div>
+                            <p>Software libraries that enable applications to connect and interact with MongoDB databases.</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Node.js</span>
+                                <span class="feature-tag">Python</span>
+                                <span class="feature-tag">Java</span>
+                                <span class="feature-tag">PHP</span>
+                            </div>
+                            <div class="driver-example">
+                                <h4>Node.js Example:</h4>
+                                <div class="code-block">
+                                    <code>const { MongoClient } = require('mongodb');
+
+const client = new MongoClient(uri);
+await client.connect();
+const db = client.db('myDatabase');
+const collection = db.collection('users');</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-layer-group"></i>
+                                <h3>Mongoose ODM</h3>
+                            </div>
+                            <p>Object Data Modeling library for Node.js providing schema-based solution to model application data.</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Schema Validation</span>
+                                <span class="feature-tag">Middleware</span>
+                                <span class="feature-tag">Relationships</span>
+                                <span class="feature-tag">Type Casting</span>
+                            </div>
+                            <div class="mongoose-vs-driver">
+                                <h4>Mongoose vs Official Driver:</h4>
+                                <div class="comparison-simple">
+                                    <div class="comparison-item">
+                                        <strong>Mongoose:</strong> Structured schemas, validation, relationships, middleware
+                                    </div>
+                                    <div class="comparison-item">
+                                        <strong>Official Driver:</strong> Direct database access, more flexible, less overhead
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mongoose-example">
+                                <h4>Mongoose Schema Example:</h4>
+                                <div class="code-block">
+                                    <code>const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, unique: true },
+  age: { type: Number, min: 0 }
+});
+
+const User = mongoose.model('User', userSchema);</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="development-workflow">
+                        <h2>🔄 Development Workflow</h2>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Local Development</h4>
+                                    <p>Use MongoDB Community Server or Docker for local development and testing.</p>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Schema Design</h4>
+                                    <p>Design your document structure and relationships using Compass or code.</p>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Application Integration</h4>
+                                    <p>Connect your application using appropriate drivers or ODM libraries.</p>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Cloud Deployment</h4>
+                                    <p>Deploy to MongoDB Atlas for production with proper security and scaling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-completion">
+                        <button class="btn btn--primary" onclick="markSectionComplete('tools')">Mark Tools Complete</button>
+                        <button class="btn btn--secondary" onclick="navigateToSection('quiz')">Test Your Knowledge →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz" class="content-section">
+                <div class="section-header">
+                    <h1>🧠 Practice Quiz</h1>
+                    <div class="breadcrumb">Home > Practice Quiz</div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Questions</span>
+                            <span class="stat-value" id="total-questions">10</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Current</span>
+                            <span class="stat-value" id="current-question">1</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Score</span>
+                            <span class="stat-value" id="quiz-score">0</span>
+                        </div>
+                    </div>
+
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quiz-progress"></div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-content" id="quiz-content">
+                        <div class="question-card">
+                            <h3 id="question-text">Loading question...</h3>
+                            <div class="options-container" id="options-container">
+                                <!-- Options will be inserted here -->
+                            </div>
+                            <div class="question-feedback" id="question-feedback" style="display: none;">
+                                <!-- Feedback will be shown here -->
+                            </div>
+                            <div class="quiz-controls">
+                                <button class="btn btn--secondary" id="prev-btn" onclick="previousQuestion()" disabled>Previous</button>
+                                <button class="btn btn--primary" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+                                <button class="btn btn--primary" id="submit-btn" onclick="submitQuiz()" style="display: none;">Submit Quiz</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-results" id="quiz-results" style="display: none;">
+                        <div class="results-card">
+                            <h2>🎉 Quiz Complete!</h2>
+                            <div class="final-score">
+                                <span id="final-score">0</span>/<span id="total-score">10</span>
+                            </div>
+                            <div class="score-message" id="score-message"></div>
+                            <div class="results-actions">
+                                <button class="btn btn--primary" onclick="restartQuiz()">Retake Quiz</button>
+                                <button class="btn btn--secondary" onclick="navigateToSection('glossary')">Review Glossary</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Glossary Section -->
+            <section id="glossary" class="content-section">
+                <div class="section-header">
+                    <h1>📖 Glossary</h1>
+                    <div class="breadcrumb">Home > Glossary</div>
+                </div>
+
+                <div class="glossary-container">
+                    <div class="glossary-search">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="glossary-search" placeholder="Search terms..." onkeyup="searchGlossary()">
+                        </div>
+                        <div class="glossary-filter">
+                            <button class="filter-btn active" onclick="filterGlossary('all')">All</button>
+                            <button class="filter-btn" onclick="filterGlossary('basic')">Basic</button>
+                            <button class="filter-btn" onclick="filterGlossary('advanced')">Advanced</button>
+                            <button class="filter-btn" onclick="filterGlossary('operators')">Operators</button>
+                        </div>
+                    </div>
+
+                    <div class="glossary-grid" id="glossary-grid">
+                        <!-- Glossary terms will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Term Details Modal -->
+    <div class="modal hidden" id="term-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-term-title"></h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-term-definition"></p>
+                <div id="modal-term-example" class="example-section"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
